@@ -10,7 +10,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 ProjectSection(SolutionItems) = preProject
 	.dockerignore = .dockerignore
 	.gitignore = .gitignore
-	Checkout.PaymentGateway.sln = Checkout.PaymentGateway.sln
 	docker-compose.test.yml = docker-compose.test.yml
 	docker-compose.yml = docker-compose.yml
 	README.md = README.md
@@ -23,6 +22,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Checkout.PaymentGateway.WebApi.Integration.Test", "test\Checkout.PaymentGateway.WebApi.Integration.Test\Checkout.PaymentGateway.WebApi.Integration.Test.csproj", "{FE963459-B46E-45F7-9A1E-AC79B1ADB56B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Checkout.PaymentGateway.Services.Test", "test\Checkout.PaymentGateway.Services.Test\Checkout.PaymentGateway.Services.Test.csproj", "{8EE3400F-9288-421E-90C9-50789091ECCF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Checkout.PaymentGateway.Data", "src\Checkout.PaymentGateway.Data\Checkout.PaymentGateway.Data.csproj", "{9FE85512-C078-46AD-9E39-9085EEA4B201}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -50,6 +51,10 @@ Global
 		{8EE3400F-9288-421E-90C9-50789091ECCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8EE3400F-9288-421E-90C9-50789091ECCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8EE3400F-9288-421E-90C9-50789091ECCF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9FE85512-C078-46AD-9E39-9085EEA4B201}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FE85512-C078-46AD-9E39-9085EEA4B201}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9FE85512-C078-46AD-9E39-9085EEA4B201}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9FE85512-C078-46AD-9E39-9085EEA4B201}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{9CD3B30B-9DD3-46A7-9169-8B73A08A6DF6} = {E7762F7D-E605-4D30-BD1F-B4FBB19088FC}
@@ -57,5 +62,6 @@ Global
 		{02ED8475-F1F1-439B-8C2F-C3BE4315CE3E} = {E7762F7D-E605-4D30-BD1F-B4FBB19088FC}
 		{FE963459-B46E-45F7-9A1E-AC79B1ADB56B} = {205139CF-3FED-403D-BF98-B6D1D6C6EBBB}
 		{8EE3400F-9288-421E-90C9-50789091ECCF} = {205139CF-3FED-403D-BF98-B6D1D6C6EBBB}
+		{9FE85512-C078-46AD-9E39-9085EEA4B201} = {E7762F7D-E605-4D30-BD1F-B4FBB19088FC}
 	EndGlobalSection
 EndGlobal
