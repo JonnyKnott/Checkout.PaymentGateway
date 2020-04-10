@@ -19,7 +19,7 @@ namespace Checkout.PaymentGateway.WebApi.Integration.Test.Services
                         new List<string> {ErrorCodeStrings.InternalError}));
                 case TestConstants.BadRequestCardNumber:
                     var validationErrors = new List<ValidationFieldError>
-                        {new ValidationFieldError(nameof(request.CardNumber), ErrorMessages.FieldInvalidContent)};
+                        {new ValidationFieldError(nameof(request.CardNumber), ErrorMessages.Validation.FieldInvalidContent)};
                     return Task.FromResult(ServiceObjectResult<ResponseEnvelope<PaymentResponse>>.Failed(
                         new ResponseEnvelope<PaymentResponse> { ValidationErrors = validationErrors},
                         new List<string> {ErrorCodeStrings.BadRequestError}));

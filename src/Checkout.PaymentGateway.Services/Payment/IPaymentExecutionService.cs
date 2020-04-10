@@ -6,6 +6,6 @@ namespace Checkout.PaymentGateway.Services.Payment
 {
     public interface IPaymentExecutionService
     {
-        Task<ServiceObjectResult<PaymentResponse>> ExecutePayment(PaymentRequest paymentRequest);
+        Task<ServiceObjectResult<PaymentResult>> ExecutePayment(PaymentRequest paymentRequest);
     }
 }

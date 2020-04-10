@@ -5,5 +5,6 @@
         public const string BadRequestCardNumber = "BadRequest";
         public const string ErrorCardNumber = "Error";
         public const string SuccessCardNumber = "Success";
+        public const string NotFoundPaymentIdentifier = "NotFound";
     }
 }

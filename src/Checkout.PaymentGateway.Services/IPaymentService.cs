@@ -8,5 +8,6 @@ namespace Checkout.PaymentGateway.Services
     public interface IPaymentService
     {
         Task<ServiceObjectResult<ResponseEnvelope<PaymentResponse>>> ProcessPaymentRequest(PaymentRequest request);
+        Task<ServiceObjectResult<PaymentResult>> GetPaymentResult(string paymentIdentifier);
     }
 }

@@ -1,6 +1,6 @@
-﻿namespace Checkout.PaymentGateway.Models.ApiModels.Payment
+﻿namespace Checkout.PaymentGateway.Models.External
 {
-    public class PaymentResponse
+    public class BankPaymentResponse
     {
         public string PaymentIdentifier { get; set; }
         public string Status { get; set; }

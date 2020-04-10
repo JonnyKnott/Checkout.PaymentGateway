@@ -29,7 +29,7 @@ namespace Checkout.PaymentGateway.WebApi.Controllers
             
             return GenerateResultFromServiceResult(result);
         }
-        
+
         private IActionResult GenerateResultFromServiceResult<TResultType>(
             ServiceObjectResult<TResultType> serviceObjectResult)
         {

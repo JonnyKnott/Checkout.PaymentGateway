@@ -25,5 +25,10 @@ namespace Checkout.PaymentGateway.Models.ServiceModels
         {
             return new ServiceObjectResult<TResultType>(result, errors);
         }
+        
+        public static ServiceObjectResult<TResultType> Failed(TResultType result, string error)
+        {
+            return new ServiceObjectResult<TResultType>(result, new List<string>{ error });
+        }
     }
 }

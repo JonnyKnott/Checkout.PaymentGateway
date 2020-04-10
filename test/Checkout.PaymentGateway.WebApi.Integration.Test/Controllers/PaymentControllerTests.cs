@@ -20,7 +20,7 @@ namespace Checkout.PaymentGateway.WebApi.Integration.Test.Controllers
         }
 
         [Fact]
-        public async void Controller_Should_Return_Bad_Request_If_Request_Invalid()
+        public async void POST_Should_Return_Bad_Request_If_Request_Invalid()
         {
             var request = new PaymentRequest
             {
@@ -40,7 +40,7 @@ namespace Checkout.PaymentGateway.WebApi.Integration.Test.Controllers
         }
         
         [Fact]
-        public async void Controller_Should_Return_Success_If_Request_Valid_And_Succeeds()
+        public async void POST_Should_Return_Success_If_Request_Valid_And_Succeeds()
         {
             var request = new PaymentRequest
             {
@@ -60,7 +60,7 @@ namespace Checkout.PaymentGateway.WebApi.Integration.Test.Controllers
         }
         
         [Fact]
-        public async void Controller_Should_Return_Error()
+        public async void POST_Should_Return_Error()
         {
             var request = new PaymentRequest
             {
