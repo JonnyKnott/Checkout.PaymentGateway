@@ -9,7 +9,7 @@ services:
       - ASPNETCORE_ENVIRONMENT=Development
       - Connections__RedisEndpoint=redis_image:6379
     ports:
-      - 9001:80
+      - 9002:80
     restart: always
     depends_on:
       - redis_image

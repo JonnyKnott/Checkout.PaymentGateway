@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using Checkout.PaymentGateway.Models.ApiModels.Payment;
 using Checkout.PaymentGateway.Models.Configuration;
+using Checkout.PaymentGateway.Services;
+using Checkout.PaymentGateway.Services.Validators;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Hosting;
@@ -31,6 +34,10 @@ namespace Checkout.PaymentGateway.WebApi
         public void ConfigureServices(IServiceCollection services)
         {
             var connectionConfiguration = _configuration.GetSection("Connections").Get<ConnectionConfiguration>();
+
+            services
+                .AddScoped<IPaymentService, PaymentService>()
+                .AddSingleton<IRequestValidator<PaymentRequest>, PaymentRequestValidator>();
             
             services.AddControllers();
 

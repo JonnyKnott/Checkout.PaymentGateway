@@ -1,4 +1,7 @@
 ﻿using System.Collections.Generic;
+using Checkout.PaymentGateway.Models.ApiModels.Payment;
+using Checkout.PaymentGateway.Services;
+using Checkout.PaymentGateway.WebApi.Integration.Test.Services;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.Extensions.Configuration;
@@ -14,7 +17,10 @@ namespace Checkout.PaymentGateway.WebApi.Integration.Test.Infrastructure
                 {
                 }).Build());
 
-            builder.ConfigureServices(services => { });
+            builder.ConfigureServices(services =>
+            {
+                services.ReplaceServiceType<IPaymentService, TestPaymentService>();
+            });
         }
     }
 }
