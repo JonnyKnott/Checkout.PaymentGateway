@@ -23,7 +23,7 @@ namespace Checkout.PaymentGateway.Models.ServiceModels
         
         public static ServiceObjectResult<TResultType> Failed(TResultType result, ICollection<string> errors)
         {
-            return new ServiceObjectResult<TResultType>(result, errors);
+            return new ServiceObjectResult<TResultType>(result, errors ?? new List<string>());
         }
         
         public static ServiceObjectResult<TResultType> Failed(TResultType result, string error)
