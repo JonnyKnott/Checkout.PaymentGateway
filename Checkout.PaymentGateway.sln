@@ -29,6 +29,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Checkout.PaymentGateway.Cor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Checkout.PaymentGateway.Data.Test", "test\Checkout.PaymentGateway.Data.Test\Checkout.PaymentGateway.Data.Test.csproj", "{5C6C40EF-78D9-4DBC-9CAE-49D5B7778AE1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Checkout.PaymentGateway.WebApi.Client", "src\Checkout.PaymentGateway.WebApi.Client\Checkout.PaymentGateway.WebApi.Client.csproj", "{7CCDE289-7F1A-4CA1-9B94-986D3DB6E53A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Checkout.PaymentGateway.WebApi.Client.Test", "test\Checkout.PaymentGateway.WebApi.Client.Test\Checkout.PaymentGateway.WebApi.Client.Test.csproj", "{29BF49D3-C4F9-4CBA-B943-45BD8837974B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -67,6 +71,14 @@ Global
 		{5C6C40EF-78D9-4DBC-9CAE-49D5B7778AE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5C6C40EF-78D9-4DBC-9CAE-49D5B7778AE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5C6C40EF-78D9-4DBC-9CAE-49D5B7778AE1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7CCDE289-7F1A-4CA1-9B94-986D3DB6E53A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CCDE289-7F1A-4CA1-9B94-986D3DB6E53A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CCDE289-7F1A-4CA1-9B94-986D3DB6E53A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7CCDE289-7F1A-4CA1-9B94-986D3DB6E53A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29BF49D3-C4F9-4CBA-B943-45BD8837974B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29BF49D3-C4F9-4CBA-B943-45BD8837974B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29BF49D3-C4F9-4CBA-B943-45BD8837974B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29BF49D3-C4F9-4CBA-B943-45BD8837974B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{9CD3B30B-9DD3-46A7-9169-8B73A08A6DF6} = {E7762F7D-E605-4D30-BD1F-B4FBB19088FC}
@@ -77,5 +89,7 @@ Global
 		{9FE85512-C078-46AD-9E39-9085EEA4B201} = {E7762F7D-E605-4D30-BD1F-B4FBB19088FC}
 		{0822A165-A210-45DF-A240-98EDBC1CFB77} = {E7762F7D-E605-4D30-BD1F-B4FBB19088FC}
 		{5C6C40EF-78D9-4DBC-9CAE-49D5B7778AE1} = {205139CF-3FED-403D-BF98-B6D1D6C6EBBB}
+		{7CCDE289-7F1A-4CA1-9B94-986D3DB6E53A} = {E7762F7D-E605-4D30-BD1F-B4FBB19088FC}
+		{29BF49D3-C4F9-4CBA-B943-45BD8837974B} = {205139CF-3FED-403D-BF98-B6D1D6C6EBBB}
 	EndGlobalSection
 EndGlobal
