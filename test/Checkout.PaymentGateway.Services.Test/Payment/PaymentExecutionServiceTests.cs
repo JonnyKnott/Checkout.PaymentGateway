@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using Amazon.Runtime.Internal.Util;
 using Checkout.PaymentGateway.Models.ApiModels.Payment;
 using Checkout.PaymentGateway.Models.External;
 using Checkout.PaymentGateway.Models.ServiceModels;
 using Checkout.PaymentGateway.Models.ServiceModels.Enums;
 using Checkout.PaymentGateway.Services.External.Clients;
 using Checkout.PaymentGateway.Services.Payment;
+using Microsoft.Extensions.Logging;
 using Moq;
 using Xunit;
 
@@ -20,8 +22,9 @@ namespace Checkout.PaymentGateway.Services.Test.Payment
         public PaymentExecutionServiceTests()
         {
             _mockBankRequestClient = new Mock<IBankRequestClient>();
+            var mockLogger = new Mock<ILogger<PaymentExecutionService>>();
             
-            _paymentExecutionService = new PaymentExecutionService(_mockBankRequestClient.Object);
+            _paymentExecutionService = new PaymentExecutionService(_mockBankRequestClient.Object, mockLogger.Object);
         }
 
         [Fact]
