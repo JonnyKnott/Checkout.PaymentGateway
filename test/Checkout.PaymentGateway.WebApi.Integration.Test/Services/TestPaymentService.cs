@@ -34,5 +34,10 @@ namespace Checkout.PaymentGateway.WebApi.Integration.Test.Services
             }
             
         }
+
+        public Task<ServiceObjectResult<PaymentResult>> GetPaymentResult(string paymentIdentifier)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

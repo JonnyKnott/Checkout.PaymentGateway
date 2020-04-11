@@ -4,8 +4,8 @@ using Checkout.PaymentGateway.Models.ApiModels.Payment;
 using Checkout.PaymentGateway.Models.External;
 using Checkout.PaymentGateway.Models.ServiceModels;
 using Checkout.PaymentGateway.Models.ServiceModels.Enums;
+using Checkout.PaymentGateway.Services.External.Clients;
 using Checkout.PaymentGateway.Services.Payment;
-using Checkout.PaymentGateway.Services.Payment.Clients;
 using Moq;
 using Xunit;
 

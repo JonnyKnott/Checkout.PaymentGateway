@@ -30,6 +30,14 @@ namespace Checkout.PaymentGateway.WebApi.Controllers
             return GenerateResultFromServiceResult(result);
         }
 
+        [HttpGet("{paymentIdentifier}")]
+        public async Task<IActionResult> Get(string paymentIdentifier)
+        {
+            var result = await _service.GetPaymentResult(paymentIdentifier);
+
+            return GenerateResultFromServiceResult(result);
+        }
+
         private IActionResult GenerateResultFromServiceResult<TResultType>(
             ServiceObjectResult<TResultType> serviceObjectResult)
         {

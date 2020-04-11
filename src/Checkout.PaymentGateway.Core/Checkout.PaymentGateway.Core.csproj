@@ -5,7 +5,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Checkout.PaymentGateway.Core\Checkout.PaymentGateway.Core.csproj" />
+      <PackageReference Include="AWSSDK.DynamoDBv2" Version="3.3.105.26" />
     </ItemGroup>
 
 </Project>

@@ -3,7 +3,7 @@ using Checkout.PaymentGateway.Models.ApiModels.Payment;
 using Checkout.PaymentGateway.Models.External;
 using Checkout.PaymentGateway.Models.ServiceModels;
 
-namespace Checkout.PaymentGateway.Services.Payment.Clients
+namespace Checkout.PaymentGateway.Services.External.Clients
 {
     public interface IBankRequestClient
     {

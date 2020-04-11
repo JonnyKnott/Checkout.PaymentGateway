@@ -1,25 +1,28 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Checkout.PaymentGateway.Data.Repository;
 using Checkout.PaymentGateway.Models.ServiceModels;
 
 namespace Checkout.PaymentGateway.WebApi.Integration.Test.Services
 {
-    public class TestPaymentRepository : IPaymentRepository
+    public class TestPaymentRepository : IDynamoDbRepository<PaymentResult>
     {
-        public async Task Add(PaymentResult entity)
+
+        public Task<ServiceResult> PutItemAsync(PaymentResult dataModel)
         {
             throw new NotImplementedException();
         }
 
-        public async Task<PaymentResult> GetByPaymentIdentifier(string paymentIdentifier)
+        public async Task<ServiceObjectResult<ICollection<PaymentResult>>> QueryByPartitionAsync(string partitionKey)
         {
-            switch (paymentIdentifier)
+            switch (partitionKey)
             {
                 case TestConstants.NotFoundPaymentIdentifier:
-                    return null;
+                    return ServiceObjectResult<ICollection<PaymentResult>>.Failed(null, ErrorCodeStrings.NotFoundError);
                 default:
-                    return new PaymentResult{ PaymentIdentifier = paymentIdentifier };
+                    return ServiceObjectResult<ICollection<PaymentResult>>.Succeeded(new List<PaymentResult>
+                        {new PaymentResult {PaymentIdentifier = partitionKey}});
             }
         }
     }

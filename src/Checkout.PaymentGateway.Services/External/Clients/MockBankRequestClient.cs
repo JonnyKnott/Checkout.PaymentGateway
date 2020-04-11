@@ -5,7 +5,7 @@ using Checkout.PaymentGateway.Models.External;
 using Checkout.PaymentGateway.Models.ServiceModels;
 using Checkout.PaymentGateway.Models.ServiceModels.Enums;
 
-namespace Checkout.PaymentGateway.Services.Payment.Clients
+namespace Checkout.PaymentGateway.Services.External.Clients
 {
     public class MockBankRequestClient : IBankRequestClient
     {

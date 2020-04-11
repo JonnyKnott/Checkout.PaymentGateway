@@ -2,6 +2,6 @@
 {
     public class ConnectionConfiguration
     {
-        public string RedisEndpoint { get; set; }
+        public string DynamoDb { get; set; }
     }
 }

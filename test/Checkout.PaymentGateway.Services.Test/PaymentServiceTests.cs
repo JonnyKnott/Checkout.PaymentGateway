@@ -18,14 +18,14 @@ namespace Checkout.PaymentGateway.Services.Test
 
         private readonly Mock<IRequestValidator<PaymentRequest>> _requestValidator;
         private readonly Mock<IPaymentExecutionService> _paymentExecutionService;
-        private readonly Mock<IPaymentRepository> _paymentRepository;
+        private readonly Mock<IDynamoDbRepository<PaymentResult>> _paymentRepository;
         
         public PaymentServiceTests()
         {
             var mockLogger = new Mock<ILogger<PaymentService>>();
             _requestValidator = new Mock<IRequestValidator<PaymentRequest>>();
             _paymentExecutionService = new Mock<IPaymentExecutionService>();
-            _paymentRepository = new Mock<IPaymentRepository>();
+            _paymentRepository = new Mock<IDynamoDbRepository<PaymentResult>>();
 
             _paymentService = new PaymentService(
                 mockLogger.Object, 

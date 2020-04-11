@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using Checkout.PaymentGateway.Data.Repository;
 using Checkout.PaymentGateway.Models.ApiModels.Payment;
 using Checkout.PaymentGateway.Models.ServiceModels;
-using Checkout.PaymentGateway.Services.Payment.Clients;
+using Checkout.PaymentGateway.Services.External.Clients;
 using PaymentStatus = Checkout.PaymentGateway.Models.ServiceModels.Enums.PaymentStatus;
 
 namespace Checkout.PaymentGateway.Services.Payment
