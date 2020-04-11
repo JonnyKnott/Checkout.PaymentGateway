@@ -9,7 +9,6 @@ namespace Checkout.PaymentGateway.Models.ServiceModels
 {
     public class PaymentResult : IDynamoDbSerializable
     {
-        public Guid Id { get; set; }
         public string PaymentIdentifier { get; set; }
         public string CardNumber { get; set; }
         public decimal Amount { get; set; }
