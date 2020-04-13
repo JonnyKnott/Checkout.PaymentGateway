@@ -3,7 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using Amazon.DynamoDBv2;
+using Amazon.Extensions.NETCore.Setup;
+using Amazon.Runtime;
+using Checkout.PaymentGateway.Data.Repository;
+using Checkout.PaymentGateway.Models;
+using Checkout.PaymentGateway.Models.ApiModels.Payment;
 using Checkout.PaymentGateway.Models.Configuration;
+using Checkout.PaymentGateway.Models.ServiceModels;
+using Checkout.PaymentGateway.Services;
+using Checkout.PaymentGateway.Services.External.Clients;
+using Checkout.PaymentGateway.Services.Payment;
+using Checkout.PaymentGateway.Services.Validators;
+using Checkout.PaymentGateway.WebApi.Services;
+using Checkout.PaymentGateway.WebApi.Services.JsonConverters;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Hosting;
@@ -20,10 +33,12 @@ namespace Checkout.PaymentGateway.WebApi
     public class Startup
     {
         private readonly IConfiguration _configuration;
+        private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public Startup(IConfiguration configuration)
+        public Startup(IConfiguration configuration, IWebHostEnvironment webHostEnvironment)
         {
             _configuration = configuration;
+            _webHostEnvironment = webHostEnvironment;
         }
         
         // This method gets called by the runtime. Use this method to add services to the container.
@@ -31,6 +46,19 @@ namespace Checkout.PaymentGateway.WebApi
         public void ConfigureServices(IServiceCollection services)
         {
             var connectionConfiguration = _configuration.GetSection("Connections").Get<ConnectionConfiguration>();
+            
+            services
+                .AddScoped<IPaymentService, PaymentService>()
+                .AddSingleton<IRequestValidator<PaymentRequest>, PaymentRequestValidator>()
+                .AddSingleton<IBankRequestClient, MockBankRequestClient>()
+                .AddSingleton<IPaymentExecutionService, PaymentExecutionService>()
+                .AddSingleton(new DynamoDbConfiguration<PaymentResult>
+                {
+                    PartitionKey = Constants.DynamoDb.PaymentResultPartitionKey,
+                    SortKey = Constants.DynamoDb.PaymentResultSortKey,
+                    TableName = Constants.DynamoDb.PaymentResultTableName
+                })
+                .AddSingleton<IDynamoDbRepository<PaymentResult>, DynamoDbRepository<PaymentResult>>();
             
             services.AddControllers();
 
@@ -42,18 +70,38 @@ namespace Checkout.PaymentGateway.WebApi
             services.AddMvc().AddJsonOptions(options =>
             {
                 options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+                options.JsonSerializerOptions.Converters.Add(new PaymentAmountJsonConverter());
                 options.JsonSerializerOptions.IgnoreNullValues = true;
             });
 
             services.AddLogging(builder => { builder.AddConsole(); });
 
-            services.AddDistributedRedisCache(options =>
-            {
-                options.Configuration = connectionConfiguration.RedisEndpoint;
-                options.InstanceName = "master";
-            });
-
             services.AddHealthChecks();
+
+            if (_webHostEnvironment.IsDevelopment())
+            {
+                services.AddDefaultAWSOptions(new AWSOptions());
+
+                var dynamoDbClient = new AmazonDynamoDBClient(
+                    new BasicAWSCredentials(
+                        _configuration["AWS_ACCESS_KEY_ID"], 
+                        _configuration["AWS_SECRET_ACCESS_KEY"])
+                    , new AmazonDynamoDBConfig
+                {
+                    UseHttp = true,
+                    ServiceURL = connectionConfiguration.DynamoDb
+                });
+                
+                services
+                    .AddSingleton<IAmazonDynamoDB>(dynamoDbClient)
+                    .AddHostedService<DevelopmentTableSetup>();
+            }
+            else
+            {
+                services
+                    .AddAWSService<IAmazonDynamoDB>();
+
+            }
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

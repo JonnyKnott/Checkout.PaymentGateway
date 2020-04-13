@@ -1,0 +1,60 @@
+{
+	"info": {
+		"_postman_id": "0e58de92-c3a9-4a72-8d20-12fc0ac93b22",
+		"name": "Checkout.PaymentGateway",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Health Check",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Make Payment",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"CardNumber\": \"1234567887654321\",\n\t\"Cvv\": \"123\",\n\t\"Amount\":10.00,\n\t\"ExpiryDate\":\"09/21\",\n\t\"Currency\":\"GBP\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{request_url}}/api/v1/payment",
+					"host": [
+						"{{request_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"payment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Payment Information",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

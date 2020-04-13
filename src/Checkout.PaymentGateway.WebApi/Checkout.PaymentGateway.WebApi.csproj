@@ -5,12 +5,24 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <PackageReference Include="AWSSDK.Core" Version="3.3.106.4" />
+      <PackageReference Include="AWSSDK.DynamoDBv2" Version="3.3.105.26" />
+      <PackageReference Include="AWSSDK.Extensions.NETCore.Setup" Version="3.3.101" />
       <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="4.1.1" />
       <PackageReference Include="Microsoft.Extensions.Caching.Redis" Version="2.2.0" />
     </ItemGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\Checkout.PaymentGateway.Models\Checkout.PaymentGateway.Models.csproj" />
+      <ProjectReference Include="..\Checkout.PaymentGateway.Services\Checkout.PaymentGateway.Services.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Update="appsettings.development.json">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
     </ItemGroup>
 
 </Project>

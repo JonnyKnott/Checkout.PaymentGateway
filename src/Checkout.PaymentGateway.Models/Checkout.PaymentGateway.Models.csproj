@@ -5,7 +5,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="ServiceModels" />
+      <ProjectReference Include="..\Checkout.PaymentGateway.Core\Checkout.PaymentGateway.Core.csproj" />
     </ItemGroup>
 
 </Project>
